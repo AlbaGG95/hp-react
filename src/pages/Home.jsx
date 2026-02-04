@@ -66,7 +66,7 @@ export default function Home() {
     !loading && !error && filteredCharacters.length === 0;
 
   return (
-    <div>
+    <div className="container">
       <Filters
         selectedHouse={selectedHouse}
         onHouseChange={setSelectedHouse}

@@ -3,7 +3,7 @@ export default function CharacterCard({ character }) {
     typeof character.image === "string" && character.image.trim().length > 0;
 
   return (
-    <article>
+    <article className="card">
       <h3>{character.name}</h3>
       <p>House: {character.house || "Not assigned"}</p>
       <p>Actor: {character.actor || "Unknown"}</p>

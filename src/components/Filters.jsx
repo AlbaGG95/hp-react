@@ -12,7 +12,7 @@ export default function Filters({
     selectedGroup === "students" || selectedGroup === "staff";
 
   return (
-    <div>
+    <div className="filters">
       <label>
         House
         <select

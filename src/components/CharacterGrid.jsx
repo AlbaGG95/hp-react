@@ -6,7 +6,7 @@ export default function CharacterGrid({ characters }) {
   }
 
   return (
-    <section>
+    <section className="grid">
       {characters.map((character) => (
         <CharacterCard
           key={character.id ?? character.name}
