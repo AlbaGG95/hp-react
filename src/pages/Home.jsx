@@ -1,4 +1,5 @@
 ﻿import { useEffect, useState } from "react";
+import CharacterGrid from "../components/CharacterGrid";
 import { getCharacters } from "../services/hpService";
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
     <div>
       <h1>Harry Potter Characters</h1>
       <p>Total: {characters.length}</p>
+      <CharacterGrid characters={characters} />
     </div>
   );
 }
