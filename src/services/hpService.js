@@ -1,38 +1,19 @@
-﻿import hpApi from "../api/hpApi";
+﻿import axios from "axios";
+
+const hpClient = axios.create({
+  baseURL: "https://hp-api.onrender.com",
+  timeout: 10000,
+  headers: { Accept: "application/json" },
+});
 
 export async function getCharacters() {
   try {
-    const response = await hpApi.get("/api/characters");
+    const response = await hpClient.get("/api/characters");
     return response.data;
   } catch (error) {
-    throw new Error("getCharacters: failed to fetch characters");
-  }
-}
-
-export async function getCharactersByHouse(house) {
-  try {
-    const encodedHouse = encodeURIComponent(house);
-    const response = await hpApi.get(`/api/characters/house/${encodedHouse}`);
-    return response.data;
-  } catch (error) {
-    throw new Error("getCharactersByHouse: failed to fetch characters by house");
-  }
-}
-
-export async function getStudents() {
-  try {
-    const response = await hpApi.get("/api/characters/students");
-    return response.data;
-  } catch (error) {
-    throw new Error("getStudents: failed to fetch students");
-  }
-}
-
-export async function getStaff() {
-  try {
-    const response = await hpApi.get("/api/characters/staff");
-    return response.data;
-  } catch (error) {
-    throw new Error("getStaff: failed to fetch staff");
+    const reason = error.response?.status
+      ? `${error.response.status} ${error.response.statusText}`
+      : error.message;
+    throw new Error(`getCharacters: failed to fetch characters (${reason})`);
   }
 }

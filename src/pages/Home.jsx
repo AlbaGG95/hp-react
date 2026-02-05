@@ -1,12 +1,7 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import CharacterGrid from "../components/CharacterGrid";
 import Filters from "../components/Filters";
-import {
-  getCharacters,
-  getCharactersByHouse,
-  getStaff,
-  getStudents,
-} from "../services/hpService";
+import { getCharacters } from "../services/hpService";
 
 export default function Home() {
   const [characters, setCharacters] = useState([]);
@@ -22,16 +17,7 @@ export default function Home() {
       setLoading(true);
       setError(null);
       try {
-        let data = [];
-        if (selectedGroup === "students") {
-          data = await getStudents();
-        } else if (selectedGroup === "staff") {
-          data = await getStaff();
-        } else if (selectedHouse) {
-          data = await getCharactersByHouse(selectedHouse);
-        } else {
-          data = await getCharacters();
-        }
+        const data = await getCharacters();
         setCharacters(data);
       } catch (error) {
         setError(error.message);
@@ -41,10 +27,27 @@ export default function Home() {
     };
 
     fetchCharacters();
-  }, [selectedGroup, selectedHouse]);
+  }, []);
 
   const normalizedSearch = search.trim().toLowerCase();
+  const normalizedSelectedHouse = selectedHouse.trim().toLowerCase();
   const filteredCharacters = characters
+    .filter((character) => {
+      if (selectedGroup === "students") {
+        return character?.hogwartsStudent === true;
+      }
+      if (selectedGroup === "staff") {
+        return character?.hogwartsStaff === true;
+      }
+      return true;
+    })
+    .filter((character) => {
+      if (selectedGroup !== "all" || !normalizedSelectedHouse) {
+        return true;
+      }
+      const characterHouse = (character?.house ?? "").trim().toLowerCase();
+      return characterHouse === normalizedSelectedHouse;
+    })
     .filter((character) => {
       const name = character?.name ?? "";
       if (!normalizedSearch) {
