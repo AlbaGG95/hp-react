@@ -1,11 +1,34 @@
 body {
-  background:
-    radial-gradient(circle at 15% 20%, rgba(70, 90, 150, 0.25), transparent 35%),
-    radial-gradient(circle at 85% 10%, rgba(120, 70, 140, 0.18), transparent 30%),
-    #0f1116;
+  background-color: #0f1116;
   color: #f5f5f5;
   margin: 0;
   font-family: system-ui, sans-serif;
+}
+
+.app {
+  position: relative;
+  isolation: isolate;
+  background-image: url("/magic-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.app::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    rgba(10, 12, 22, 0.86),
+    rgba(10, 12, 22, 0.86)
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app > * {
+  position: relative;
+  z-index: 1;
 }
 
 .app-shell {
