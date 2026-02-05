@@ -13,9 +13,10 @@ export default function Filters({
 
   return (
     <div className="filters">
-      <label>
-        House
+      <div className="field">
+        <label className="label">House</label>
         <select
+          className="control"
           value={selectedHouse}
           onChange={(event) => onHouseChange(event.target.value)}
           disabled={isHouseDisabled}
@@ -26,14 +27,15 @@ export default function Filters({
           <option value="Ravenclaw">Ravenclaw</option>
           <option value="Hufflepuff">Hufflepuff</option>
         </select>
-      </label>
+      </div>
       {isHouseDisabled ? (
         <small>House filter only applies to All</small>
       ) : null}
 
-      <label>
-        Group
+      <div className="field">
+        <label className="label">Group</label>
         <select
+          className="control"
           value={selectedGroup}
           onChange={(event) => onGroupChange(event.target.value)}
         >
@@ -41,25 +43,27 @@ export default function Filters({
           <option value="students">Students</option>
           <option value="staff">Staff</option>
         </select>
-      </label>
+      </div>
 
-      <label>
-        Search
+      <div className="field">
+        <label className="label">Search</label>
         <input
+          className="control"
           type="text"
           placeholder="Search by name..."
           value={search}
           onChange={(event) => onSearchChange(event.target.value)}
         />
-      </label>
+      </div>
 
-      <label>
+      <label className="field">
         <input
+          className="checkbox"
           type="checkbox"
           checked={onlyWithImage}
           onChange={(event) => onOnlyWithImageChange(event.target.checked)}
         />
-        Only with image
+        <span className="label-inline">Only with image</span>
       </label>
     </div>
   );

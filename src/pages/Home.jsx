@@ -64,6 +64,20 @@ export default function Home() {
 
   const showEmptyState =
     !loading && !error && filteredCharacters.length === 0;
+  const normalizedSearchValue = search.trim();
+  const selectedGroupLabel =
+    selectedGroup === "all"
+      ? "All"
+      : selectedGroup === "students"
+        ? "Students"
+        : "Staff";
+
+  const handleClear = () => {
+    setSelectedHouse("");
+    setSelectedGroup("all");
+    setSearch("");
+    setOnlyWithImage(false);
+  };
 
   return (
     <div className="container">
@@ -84,10 +98,34 @@ export default function Home() {
         <div>Error: {error}</div>
       ) : (
         <div>
-          <h1>Harry Potter Characters</h1>
-          <p>Total: {filteredCharacters.length}</p>
+          <header className="page-header">
+            <h1>Harry Potter Characters</h1>
+            <div className="statusbar">
+              <div className="chips">
+                <span className="chip">Total: {filteredCharacters.length}</span>
+                <span className="chip">
+                  House: {selectedHouse || "All houses"}
+                </span>
+                <span className="chip">Group: {selectedGroupLabel}</span>
+                {normalizedSearchValue ? (
+                  <span className="chip">
+                    Search: {normalizedSearchValue}
+                  </span>
+                ) : null}
+                {onlyWithImage ? (
+                  <span className="chip">Only with image</span>
+                ) : null}
+              </div>
+              <button className="btn btn-ghost" onClick={handleClear}>
+                Clear filters
+              </button>
+            </div>
+          </header>
           {showEmptyState ? (
-            <p>No results found</p>
+            <div className="empty">
+              <p>No results found</p>
+              <small>Try clearing filters.</small>
+            </div>
           ) : (
             <CharacterGrid characters={filteredCharacters} />
           )}

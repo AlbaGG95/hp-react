@@ -16,6 +16,7 @@ export default function CharacterCard({ character }) {
   const hasHouse = normalizedHouse && normalizedHouse !== "not assigned";
   const houseKey = hasHouse ? normalizedHouse : "none";
   const houseIcon = hasHouse ? houseIcons[normalizedHouse] : null;
+  const actorName = character.actor || "Unknown";
   const hasImage =
     typeof character.image === "string" && character.image.trim().length > 0;
 
@@ -29,8 +30,11 @@ export default function CharacterCard({ character }) {
         />
       ) : null}
       <h3>{character.name}</h3>
-      <p>House: {house || "Not assigned"}</p>
-      <p>Actor: {character.actor || "Unknown"}</p>
+      <p className="meta">
+        <span className="meta-label">Actor</span>
+        {" "}
+        {actorName}
+      </p>
       {hasImage ? (
         <img
           src={character.image}
