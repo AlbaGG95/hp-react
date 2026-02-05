@@ -38,3 +38,91 @@ body {
   padding: 1rem;
   border-radius: 8px;
 }
+
+.card-img {
+  width: 120px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.img-placeholder {
+  width: 120px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+}
+
+.house-icon {
+  width: 36px;
+  height: 36px;
+  opacity: 0.85;
+  display: block;
+  background: transparent;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4));
+}
+
+.placeholder-text {
+  font-size: 0.75rem;
+}
+
+.house-badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.house-gryffindor {
+  border: 1px solid rgba(255, 80, 80, 0.35);
+  color: rgba(255, 80, 80, 0.85);
+}
+
+.house-slytherin {
+  border: 1px solid rgba(80, 255, 160, 0.3);
+  color: rgba(80, 255, 160, 0.75);
+}
+
+.house-ravenclaw {
+  border: 1px solid rgba(80, 160, 255, 0.3);
+  color: rgba(80, 160, 255, 0.75);
+}
+
+.house-hufflepuff {
+  border: 1px solid rgba(255, 220, 80, 0.35);
+  color: rgba(255, 220, 80, 0.85);
+}
+
+.house-none {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.house-badge.house-gryffindor {
+  background: rgba(255, 80, 80, 0.12);
+}
+
+.house-badge.house-slytherin {
+  background: rgba(80, 255, 160, 0.12);
+}
+
+.house-badge.house-ravenclaw {
+  background: rgba(80, 160, 255, 0.12);
+}
+
+.house-badge.house-hufflepuff {
+  background: rgba(255, 220, 80, 0.12);
+}
+
+.house-badge.house-none {
+  background: rgba(255, 255, 255, 0.08);
+}
