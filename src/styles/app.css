@@ -8,6 +8,16 @@ body {
   font-family: system-ui, sans-serif;
 }
 
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+}
+
 .container {
   width: 100%;
   max-width: 1120px;
@@ -273,6 +283,39 @@ body {
 
 .empty small {
   color: rgba(255, 255, 255, 0.7);
+}
+
+.site-footer {
+  margin-top: 2rem;
+  padding: 1.5rem 1rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(8, 11, 18, 0.82);
+}
+
+.footer-inner {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(245, 245, 245, 0.95);
+}
+
+.footer-text {
+  margin: 0 0 0.4rem;
+  font-size: 0.85rem;
+  color: rgba(245, 245, 245, 0.84);
+}
+
+.footer-meta {
+  margin: 0.15rem 0;
+  font-size: 0.78rem;
+  color: rgba(245, 245, 245, 0.68);
 }
 
 @media (max-width: 640px) {
