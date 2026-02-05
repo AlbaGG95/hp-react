@@ -44,6 +44,9 @@ export default function CharacterCard({ character }) {
         />
       ) : (
         <div className="img-placeholder">
+          <div className="placeholder-emoji" aria-hidden="true">
+            ✨
+          </div>
           <div className="placeholder-text">No image available</div>
         </div>
       )}
