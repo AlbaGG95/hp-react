@@ -102,7 +102,7 @@ export default function Home() {
       ) : (
         <div>
           <header className="page-header">
-            <h1>Harry Potter Characters</h1>
+            <h1 className="page-title">Harry Potter Characters</h1>
             <div className="statusbar">
               <div className="chips">
                 <span className="chip">Total: {filteredCharacters.length}</span>
