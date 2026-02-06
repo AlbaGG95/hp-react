@@ -231,6 +231,16 @@ body {
   line-height: 1.2;
 }
 
+.character-name {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.05rem, 1vw + 0.9rem, 1.35rem);
+  line-height: 1.15;
+  word-break: break-word;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+}
+
 .card p {
   color: rgba(233, 238, 246, 0.9);
 }

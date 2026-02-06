@@ -34,7 +34,7 @@ export default function CharacterCard({ character }) {
         />
       ) : null}
       {isNoHouse ? <span className="house-tag">No house</span> : null}
-      <h3>{character.name}</h3>
+      <h3 className="character-name">{character.name}</h3>
       <p className="meta">
         <span className="meta-label">House</span>{" "}
         {house}
