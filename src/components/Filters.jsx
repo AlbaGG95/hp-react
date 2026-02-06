@@ -5,8 +5,6 @@ export default function Filters({
   onGroupChange,
   search,
   onSearchChange,
-  onlyWithImage,
-  onOnlyWithImageChange,
 }) {
   const isHouseDisabled =
     selectedGroup === "students" || selectedGroup === "staff";
@@ -57,15 +55,6 @@ export default function Filters({
         />
       </div>
 
-      <label className="field">
-        <input
-          className="checkbox"
-          type="checkbox"
-          checked={onlyWithImage}
-          onChange={(event) => onOnlyWithImageChange(event.target.checked)}
-        />
-        <span className="label-inline">Only with image</span>
-      </label>
     </div>
   );
 }

@@ -10,7 +10,6 @@ export default function Home() {
   const [selectedHouse, setSelectedHouse] = useState("all");
   const [selectedGroup, setSelectedGroup] = useState("all");
   const [search, setSearch] = useState("");
-  const [onlyWithImage, setOnlyWithImage] = useState(false);
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -57,15 +56,11 @@ export default function Home() {
       }
       return name.toLowerCase().includes(normalizedSearch);
     })
-    .filter((character) => {
-      if (!onlyWithImage) {
-        return true;
-      }
-      return (
+    .filter(
+      (character) =>
         typeof character?.image === "string" &&
         character.image.trim().length > 0
-      );
-    });
+    );
 
   const showEmptyState =
     !loading && !error && filteredCharacters.length === 0;
@@ -91,7 +86,6 @@ export default function Home() {
     setSelectedHouse("all");
     setSelectedGroup("all");
     setSearch("");
-    setOnlyWithImage(false);
   };
 
   return (
@@ -103,8 +97,6 @@ export default function Home() {
         onGroupChange={setSelectedGroup}
         search={search}
         onSearchChange={setSearch}
-        onlyWithImage={onlyWithImage}
-        onOnlyWithImageChange={setOnlyWithImage}
       />
 
       {loading ? (
@@ -126,9 +118,6 @@ export default function Home() {
                   <span className="chip">
                     Search: {normalizedSearchValue}
                   </span>
-                ) : null}
-                {onlyWithImage ? (
-                  <span className="chip">Only with image</span>
                 ) : null}
               </div>
               <button className="btn btn-ghost" onClick={handleClear}>
