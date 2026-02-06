@@ -1,34 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap");
 
+html,
 body {
-  background-color: #0f1116;
+  min-height: 100%;
+}
+
+body {
+  background-color: transparent;
+  background-image: url("/magic-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #f5f5f5;
   margin: 0;
   font-family: system-ui, sans-serif;
 }
 
-.app {
-  position: relative;
-  isolation: isolate;
-  background-image: url("/magic-background.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.app::before {
+body::before {
   content: "";
   position: fixed;
   inset: 0;
   background: linear-gradient(
-    rgba(10, 12, 22, 0.86),
-    rgba(10, 12, 22, 0.86)
+    rgba(10, 12, 22, 0.88),
+    rgba(10, 12, 22, 0.9)
   );
   pointer-events: none;
   z-index: 0;
 }
 
-.app > * {
+.app {
   position: relative;
   z-index: 1;
 }
@@ -425,6 +426,12 @@ body {
     top: 0;
     padding: 0.65rem 0.75rem;
     gap: 0.55rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
   }
 }
 
