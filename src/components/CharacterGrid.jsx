@@ -23,7 +23,7 @@ export default function CharacterGrid({ characters }) {
           <div className="castle-card__overlay">
             <div className="castle-card__title">Magical Academy</div>
             <div className="castle-card__subtitle">
-              An original fantasy castle
+              Castle of Hogwarts
             </div>
           </div>
         </div>
