@@ -13,6 +13,21 @@ export default function CharacterGrid({ characters }) {
           character={character}
         />
       ))}
+      {characters.length > 0 ? (
+        <div className="castle-card" aria-hidden="true">
+          <img
+            src="/academy-castle.png"
+            alt=""
+            className="castle-card__img"
+          />
+          <div className="castle-card__overlay">
+            <div className="castle-card__title">Magical Academy</div>
+            <div className="castle-card__subtitle">
+              An original fantasy castle
+            </div>
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 }
