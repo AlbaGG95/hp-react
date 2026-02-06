@@ -293,6 +293,30 @@ body {
   background: rgba(255, 255, 255, 0.06);
 }
 
+.details {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.detail-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+}
+
+.detail-label {
+  color: rgba(233, 238, 246, 0.72);
+}
+
+.detail-value {
+  color: rgba(233, 238, 246, 0.95);
+  word-break: break-word;
+}
+
 .placeholder-text {
   font-size: 0.75rem;
 }

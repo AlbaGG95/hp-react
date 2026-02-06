@@ -15,12 +15,12 @@ const knownHouseKeys = new Set(Object.keys(houseIcons));
 export default function CharacterCard({ character }) {
   const house = (character.house || "No house").trim() || "No house";
   const rawHouseKey = (character.houseKey || "none").trim().toLowerCase();
-  const houseKey = knownHouseKeys.has(rawHouseKey) ? rawHouseKey : "none";
-  const houseIcon = knownHouseKeys.has(rawHouseKey)
-    ? houseIcons[rawHouseKey]
-    : null;
+  const isKnownHouse = knownHouseKeys.has(rawHouseKey);
+  const houseKey = isKnownHouse ? rawHouseKey : "none";
+  const houseIcon = isKnownHouse ? houseIcons[rawHouseKey] : null;
   const isNoHouse = rawHouseKey === "none";
   const actorName = character.actor || "Unknown";
+  const genderLabel = character.gender || "Unknown";
   const hasImage =
     typeof character.image === "string" && character.image.trim().length > 0;
 
@@ -36,8 +36,16 @@ export default function CharacterCard({ character }) {
       {isNoHouse ? <span className="house-tag">No house</span> : null}
       <h3>{character.name}</h3>
       <p className="meta">
+        <span className="meta-label">House</span>{" "}
+        {house}
+      </p>
+      <p className="meta">
         <span className="meta-label">Actor</span>{" "}
         {actorName}
+      </p>
+      <p className="meta">
+        <span className="meta-label">Gender</span>{" "}
+        {genderLabel}
       </p>
       {hasImage ? (
         <img
