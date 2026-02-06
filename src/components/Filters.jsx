@@ -21,11 +21,12 @@ export default function Filters({
           onChange={(event) => onHouseChange(event.target.value)}
           disabled={isHouseDisabled}
         >
-          <option value="">All houses</option>
-          <option value="Gryffindor">Gryffindor</option>
-          <option value="Slytherin">Slytherin</option>
-          <option value="Ravenclaw">Ravenclaw</option>
-          <option value="Hufflepuff">Hufflepuff</option>
+          <option value="all">All houses</option>
+          <option value="gryffindor">Gryffindor</option>
+          <option value="slytherin">Slytherin</option>
+          <option value="ravenclaw">Ravenclaw</option>
+          <option value="hufflepuff">Hufflepuff</option>
+          <option value="none">No house</option>
         </select>
       </div>
       {isHouseDisabled ? (

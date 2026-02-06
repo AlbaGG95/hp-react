@@ -1,4 +1,4 @@
-import gryffindorIcon from "../assets/houses/gryffindor.png";
+﻿import gryffindorIcon from "../assets/houses/gryffindor.png";
 import slytherinIcon from "../assets/houses/slytherin.png";
 import ravenclawIcon from "../assets/houses/ravenclaw.png";
 import hufflepuffIcon from "../assets/houses/hufflepuff.png";
@@ -10,12 +10,16 @@ const houseIcons = {
   hufflepuff: hufflepuffIcon,
 };
 
+const knownHouseKeys = new Set(Object.keys(houseIcons));
+
 export default function CharacterCard({ character }) {
-  const house = (character.house || "").trim();
-  const normalizedHouse = house.toLowerCase();
-  const hasHouse = normalizedHouse && normalizedHouse !== "not assigned";
-  const houseKey = hasHouse ? normalizedHouse : "none";
-  const houseIcon = hasHouse ? houseIcons[normalizedHouse] : null;
+  const house = (character.house || "No house").trim() || "No house";
+  const rawHouseKey = (character.houseKey || "none").trim().toLowerCase();
+  const houseKey = knownHouseKeys.has(rawHouseKey) ? rawHouseKey : "none";
+  const houseIcon = knownHouseKeys.has(rawHouseKey)
+    ? houseIcons[rawHouseKey]
+    : null;
+  const isNoHouse = rawHouseKey === "none";
   const actorName = character.actor || "Unknown";
   const hasImage =
     typeof character.image === "string" && character.image.trim().length > 0;
@@ -29,10 +33,10 @@ export default function CharacterCard({ character }) {
           alt={`${house} crest`}
         />
       ) : null}
+      {isNoHouse ? <span className="house-tag">No house</span> : null}
       <h3>{character.name}</h3>
       <p className="meta">
-        <span className="meta-label">Actor</span>
-        {" "}
+        <span className="meta-label">Actor</span>{" "}
         {actorName}
       </p>
       {hasImage ? (

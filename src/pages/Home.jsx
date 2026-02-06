@@ -7,7 +7,7 @@ export default function Home() {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [selectedHouse, setSelectedHouse] = useState("");
+  const [selectedHouse, setSelectedHouse] = useState("all");
   const [selectedGroup, setSelectedGroup] = useState("all");
   const [search, setSearch] = useState("");
   const [onlyWithImage, setOnlyWithImage] = useState(false);
@@ -42,11 +42,13 @@ export default function Home() {
       return true;
     })
     .filter((character) => {
-      if (selectedGroup !== "all" || !normalizedSelectedHouse) {
+      if (selectedGroup !== "all" || normalizedSelectedHouse === "all") {
         return true;
       }
-      const characterHouse = (character?.house ?? "").trim().toLowerCase();
-      return characterHouse === normalizedSelectedHouse;
+      const characterHouseKey = (character?.houseKey ?? "none")
+        .trim()
+        .toLowerCase();
+      return characterHouseKey === normalizedSelectedHouse;
     })
     .filter((character) => {
       const name = character?.name ?? "";
@@ -74,9 +76,19 @@ export default function Home() {
       : selectedGroup === "students"
         ? "Students"
         : "Staff";
+  const selectedHouseLabelMap = {
+    all: "All houses",
+    gryffindor: "Gryffindor",
+    slytherin: "Slytherin",
+    ravenclaw: "Ravenclaw",
+    hufflepuff: "Hufflepuff",
+    none: "No house",
+  };
+  const selectedHouseLabel =
+    selectedHouseLabelMap[normalizedSelectedHouse] || "All houses";
 
   const handleClear = () => {
-    setSelectedHouse("");
+    setSelectedHouse("all");
     setSelectedGroup("all");
     setSearch("");
     setOnlyWithImage(false);
@@ -107,7 +119,7 @@ export default function Home() {
               <div className="chips">
                 <span className="chip">Total: {filteredCharacters.length}</span>
                 <span className="chip">
-                  House: {selectedHouse || "All houses"}
+                  House: {selectedHouseLabel}
                 </span>
                 <span className="chip">Group: {selectedGroupLabel}</span>
                 {normalizedSearchValue ? (
