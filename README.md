@@ -1,16 +1,46 @@
-# React + Vite
+﻿# Harry Potter Characters
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Character explorer built with React + Vite consuming the Harry Potter API.
 
-Currently, two official plugins are available:
+## Demo
+- Deploy: https://your-vercel-url.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Character listing with house/group filters and name search
+- House theming on cards and clean, responsive grid
+- Only characters with valid images are shown for visual consistency
 
-## React Compiler
+## Tech Stack
+- React
+- Vite
+- Axios
+- CSS (no frameworks)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Install & Run
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Build
+```bash
+npm run build
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+```
+src/
+  components/   # UI components (cards, filters, footer)
+  pages/        # Home page
+  services/     # API access (hpService)
+  styles/       # Global styles (app.css)
+public/         # Static assets
+```
+
+## Academic Notes
+- API data is normalized (house label + houseKey) to keep filtering consistent.
+- UI avoids external libraries to demonstrate core React + CSS skills.
+- Images are framed uniformly for a consistent grid layout.
+
+## Author
+- Alba Ganduxé — 2026
