@@ -3,7 +3,10 @@
 Character explorer built with React + Vite consuming the Harry Potter API.
 
 ## Demo
-- Deploy: https://your-vercel-url.vercel.app
+- (https://hp-react-sandy.vercel.app/)
+
+  <img width="1905" height="909" alt="{0A46A1C0-214F-42A9-9A2D-4E3BEA22EBDB}" src="https://github.com/user-attachments/assets/52464b24-d11c-46fd-9557-9767221b0466" />
+
 
 ## Features
 - Character listing with house/group filters and name search
